@@ -1,23 +1,32 @@
 <h1>新規登録画面</h1>
 
 <%= form_for @user do |f| %>
+   <% if @user.errors.any? %>
+     <h3>入力した内容にエラーが<%= @user.errors.count %>件あります</h3>
+     <ul>
+       <% @user.errors.full_messages.each do |message| %>
+         <li><%= message %></li>
+       <% end %>
+     </ul>
+   <% end %>
+
    <p>
-     <%= f.label :name %>
+     <%= f.label :name, 'ユーザー名' %>
      <%= f.text_field :name %>
    </p>
 
    <p>
-     <%= f.label :email %>
+     <%= f.label :email, "メールアドレス" %>
      <%= f.text_field :email %>
    </p>
 
    <p>
-     <%= f.label :password %>
+     <%= f.label :password, "パスワード"%>
      <%= f.password_field :password %>
    </p>
 
    <p>
-     <%= f.label :password_confirmation %>
+     <%= f.label :password_confirmation, "パスワード確認" %>
      <%= f.password_field :password_confirmation %>
    </p>
 

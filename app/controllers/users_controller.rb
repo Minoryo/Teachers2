@@ -17,7 +17,7 @@ class UsersController < ApplicationController
     if @user.save
       redirect_to @user, notice: "ユーザ登録完了"
     else
-      render :new
+      render action: :new
     end
   end
 
