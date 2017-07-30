@@ -1,0 +1,17 @@
+<h1>ログイン画面</h1>
+
+<%= form_for :session, url: login_path do |f| %>
+  <p>
+    <%= f.label :email, 'Eメール' %>
+    <%= f.text_field :email %>
+  </p>
+  <p>
+    <%= f.label :password, 'パスワード' %>
+    <%= f.password_field :password %>
+  </p>
+  <p>
+    <%= f.submit 'ログイン' %>
+  </p>
+<% end %>
+
+<%= link_to "登録されていない方はこちら", new_user_path %>
