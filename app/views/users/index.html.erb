@@ -1,1 +1,23 @@
-<h1>ユーザ一覧</h1>
+<h1>TEACHERS</h1>
+<div class="sign_menu">
+  <% if signed_in? %>
+    <li><%= link_to "マイページ", "/users/#{@current_user.id}" %></li>
+    <li><%= link_to "ログアウト", logout_path, :method => :delete %></li>
+  <% else %>
+    <li><%= link_to "新規登録", new_user_path %></li>
+    <li><%= link_to "ログイン", login_path %></li>
+  <% end %>
+</div>
+<div class="menu">
+  <ul>
+    <li><%= link_to "ホーム", root_path %></li>
+    <li><%= link_to "TEACHERSとは", about_path %></li>
+  </ul>
+</div>
+
+<div class="user-list">
+  <h2>ユーザー一覧</h2>
+  <% @users.each do |user| %>
+    <%= user.name %><br>
+  <% end %>
+</div>
